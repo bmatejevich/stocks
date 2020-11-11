@@ -6,9 +6,7 @@ import os.path
 from os import path
 import pandas as pd
 import pandas_datareader.data as web
-import matplotlib.pyplot as plt
 from matplotlib import style
-import numpy as np
 import csv
 import shutil
 
