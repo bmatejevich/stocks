@@ -32,7 +32,7 @@ def delete_old_data():
     if path.isdir('stock_dfs') == True:
         shutil.rmtree('stock_dfs')
 
-def get_data_from_yahoo(tickers,start=dt.datetime(2020,7,14),end=dt.datetime(2020,10,14)):
+def get_data_from_yahoo(tickers,start=dt.datetime(2018,1,1),end=dt.datetime(2020,10,14)):
     if not os.path.exists('stock_dfs'):
         os.makedirs('stock_dfs')
     print(start)
@@ -146,7 +146,7 @@ def main(ticker_list_file,days_back,top_n = 5, delete_old = False):
 
 ###############################################################
 days_back = 500
-ticker_list_file = 'tickerlist.csv'
+ticker_list_file = 'cold.csv'
 top_n = 4
 delete_old = True
 
