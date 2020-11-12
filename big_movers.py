@@ -24,7 +24,7 @@ def get_ticker_list(ticker_list_file):
         return ticker_list
 
 def save_tickers(ticker_list):
-    with open('tickers.pickle','wb') as f:
+    with open('temp/tickers.pickle', 'wb') as f:
         pickle.dump(ticker_list,f)
     return ticker_list
 
@@ -48,7 +48,7 @@ def get_data_from_yahoo(tickers,start=dt.datetime(2018,1,1),end=dt.datetime(2020
             print('Already have {}'.format(ticker))
 
 def compile_data():
-    with open("tickers.pickle","rb") as f:
+    with open("temp/tickers.pickle", "rb") as f:
         tickers = pickle.load(f)
     main_df = pd.DataFrame()
     for count,ticker in enumerate(tickers):
@@ -146,7 +146,7 @@ def main(ticker_list_file,days_back,top_n = 5, delete_old = False):
 
 ###############################################################
 days_back = 500
-ticker_list_file = 'cold.csv'
+ticker_list_file = 'stock_lists/cold.csv'
 top_n = 4
 delete_old = True
 

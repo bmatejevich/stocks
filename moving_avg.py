@@ -16,7 +16,7 @@ df = web.DataReader('NIO','yahoo',start,end)
 
 '''moving average'''
 df['5ma'] = df['Adj Close'].rolling(window=5).mean()
-#df['x_days_ma'] = df['Adj Close'].rolling(window=x).mean()
+##df['x_days_ma'] = df['Adj Close'].rolling(window=x).mean()
 
 df.dropna(inplace=True)
 
