@@ -24,17 +24,17 @@ def get_ticker_list(ticker_list_file):
         return ticker_list
 
 def save_tickers(ticker_list):
-    with open('temp/tickers.pickle', 'wb') as f:
+    with open('../temp/tickers.pickle', 'wb') as f:
         pickle.dump(ticker_list,f)
     return ticker_list
 
 def delete_old_data():
-    if path.isdir('stock_dfs') == True:
-        shutil.rmtree('stock_dfs')
+    if path.isdir('../stock_dfs') == True:
+        shutil.rmtree('../stock_dfs')
 
 def get_data_from_yahoo(tickers,start=dt.datetime(2018,1,1),end=dt.datetime(2020,10,14)):
-    if not os.path.exists('stock_dfs'):
-        os.makedirs('stock_dfs')
+    if not os.path.exists('../stock_dfs'):
+        os.makedirs('../stock_dfs')
 
     for ticker in tickers:
         print(ticker)
@@ -48,7 +48,7 @@ def get_data_from_yahoo(tickers,start=dt.datetime(2018,1,1),end=dt.datetime(2020
             print('Already have {}'.format(ticker))
 
 def compile_data():
-    with open("temp/tickers.pickle", "rb") as f:
+    with open("../temp/tickers.pickle", "rb") as f:
         tickers = pickle.load(f)
     main_df = pd.DataFrame()
     for count,ticker in enumerate(tickers):
@@ -138,5 +138,5 @@ def main(ticker_list_file,delete_old,week_win_percent,month_win_percent,three_mo
 
 
 
-main(ticker_list_file = 'stock_lists/medium.csv',delete_old = True,week_win_percent = 15,month_win_percent = 70,
-     three_month_win_percent = 120,year_win_percent = 500)
+main(ticker_list_file ='../stock_lists/medium.csv', delete_old = True, week_win_percent = 15, month_win_percent = 70,
+     three_month_win_percent = 120, year_win_percent = 500)
