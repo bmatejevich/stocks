@@ -142,12 +142,4 @@ def main(ticker_list_file,days_back,top_n = 5, delete_old = False):
     print("-----------------------------------------------------------------------------------------------------------------")
 
 
-
-
-###############################################################
-days_back = 500
-ticker_list_file = 'stock_lists/cold.csv'
-top_n = 4
-delete_old = True
-
-main(ticker_list_file,days_back,top_n,delete_old)
+main(ticker_list_file = 'stock_lists/cold.csv',days_back = 500,top_n = 4,delete_old = True)

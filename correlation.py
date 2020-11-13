@@ -93,7 +93,12 @@ def visualize_data():
     plt.tight_layout()
     plt.show()
 
-def main(ticker_list_file,start,end,delete_old):
+def main(days_back,ticker_list_file,delete_old):
+    d = datetime.today()
+    look_back = dt.timedelta(days=days_back)
+    end = dt.datetime(d.year, d.month, d.day)
+    start = end - look_back
+
     data = get_ticker_list(ticker_list_file)
     ticker_list = data
     print("Got ticker list!")
@@ -115,15 +120,4 @@ def main(ticker_list_file,start,end,delete_old):
 
 
 
-'''###########################################################################################'''
-days_back = 30
-ticker_list_file = 'stock_lists/medium.csv'
-
-d = datetime.today()
-look_back = dt.timedelta(days=days_back)
-end = dt.datetime(d.year,d.month,d.day)
-start = end - look_back
-
-delete_old = True
-
-main(ticker_list_file,start,end,delete_old)
+main(days_back = 30, ticker_list_file = 'stock_lists/medium.csv',delete_old = True)

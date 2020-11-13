@@ -106,7 +106,13 @@ def check_percent_change(main_df,stock_list,week_win_percent = 5,month_win_perce
     return(weekly_winners,monthly_winners,three_month_winners,yearly_winners)
 
 
-def main(ticker_list_file,start,end,delete_old,week_win_percent,month_win_percent,three_month_win_percent,year_win_percent):
+def main(ticker_list_file,delete_old,week_win_percent,month_win_percent,three_month_win_percent,year_win_percent):
+    days_back = 500
+    d = datetime.today()
+    look_back = dt.timedelta(days=days_back)
+    end = dt.datetime(d.year, d.month, d.day)
+    start = end - look_back
+
     stock_list = get_ticker_list(ticker_list_file)
     ticker_list = stock_list
     print("Got ticker list!")
@@ -125,25 +131,12 @@ def main(ticker_list_file,start,end,delete_old,week_win_percent,month_win_percen
     print("Compliled!")
 
     weekly_winners,monthly_winners,three_month_winners,yearly_winners = check_percent_change(main_df,stock_list,week_win_percent,month_win_percent,three_month_win_percent,year_win_percent)
-    print(weekly_winners)
-    print(monthly_winners)
-    print(three_month_winners)
-    print(yearly_winners)
+    print('Weekly winners: ' + str(weekly_winners))
+    print('Monthly winners: ' + str(monthly_winners))
+    print('3 Month winners: ' + str(three_month_winners))
+    print('Yearly winners: ' + str(yearly_winners))
 
 
-##########################################################
-days_back = 500
-ticker_list_file = 'stock_lists/medium.csv'
-week_win_percent = 15
-month_win_percent = 70
-three_month_win_percent = 120
-year_win_percent = 500
 
-d = datetime.today()
-look_back = dt.timedelta(days=days_back)
-end = dt.datetime(d.year,d.month,d.day)
-start = end - look_back
-
-delete_old = True
-
-main(ticker_list_file,start,end,delete_old,week_win_percent,month_win_percent,three_month_win_percent,year_win_percent)
+main(ticker_list_file = 'stock_lists/medium.csv',delete_old = True,week_win_percent = 15,month_win_percent = 70,
+     three_month_win_percent = 120,year_win_percent = 500)
