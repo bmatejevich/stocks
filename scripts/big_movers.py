@@ -24,17 +24,17 @@ def get_ticker_list(ticker_list_file):
         return ticker_list
 
 def save_tickers(ticker_list):
-    with open('../temp/tickers.pickle', 'wb') as f:
+    with open('temp/tickers.pickle', 'wb') as f:
         pickle.dump(ticker_list,f)
     return ticker_list
 
 def delete_old_data():
-    if path.isdir('../stock_dfs') == True:
-        shutil.rmtree('../stock_dfs')
+    if path.isdir('stock_dfs') == True:
+        shutil.rmtree('stock_dfs')
 
 def get_data_from_yahoo(tickers,start=dt.datetime(2018,1,1),end=dt.datetime(2020,10,14)):
-    if not os.path.exists('../stock_dfs'):
-        os.makedirs('../stock_dfs')
+    if not os.path.exists('stock_dfs'):
+        os.makedirs('stock_dfs')
     print(start)
     for ticker in tickers:
         print(ticker)
@@ -48,7 +48,7 @@ def get_data_from_yahoo(tickers,start=dt.datetime(2018,1,1),end=dt.datetime(2020
             print('Already have {}'.format(ticker))
 
 def compile_data():
-    with open("../temp/tickers.pickle", "rb") as f:
+    with open("temp/tickers.pickle", "rb") as f:
         tickers = pickle.load(f)
     main_df = pd.DataFrame()
     for count,ticker in enumerate(tickers):
@@ -142,4 +142,4 @@ def main(ticker_list_file,days_back,top_n = 5, delete_old = False):
     print("-----------------------------------------------------------------------------------------------------------------")
 
 
-main(ticker_list_file ='../stock_lists/cold.csv', days_back = 500, top_n = 4, delete_old = True)
+main(ticker_list_file ='stock_lists/cold.csv', days_back = 500, top_n = 4, delete_old = True)
