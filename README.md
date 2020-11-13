@@ -1,6 +1,6 @@
 # Stocks
 
-##Dowload and install dependencies
+## Dowload and install dependencies
 ```python
 git clone https://github.com/bmatejevich/stocks.git
 cd stocks
@@ -8,7 +8,7 @@ pip install -r requirements.txt
 ```
 
 
-##Big Movers Script
+## Big Movers Script
 ```python
 python3 big_movers.py
 ```
@@ -19,7 +19,7 @@ main(ticker_list_file = 'stock_lists/cold.csv',days_back = 500,top_n = 4,delete_
 ```
 
 
-##Percent Change Script
+## Percent Change Script
 ```python
 python3 percent_change.py
 ```
@@ -29,7 +29,7 @@ You can change the % change goals and the list of stock considered in the follow
 main(ticker_list_file = 'stock_lists/medium.csv',delete_old = True,week_win_percent = 15,month_win_percent = 70,three_month_win_percent = 120,year_win_percent = 500)
 ```
 
-##Moving Average Script
+## Moving Average Script
 ```python
 python3 moving_avg.py
 ```
@@ -40,7 +40,7 @@ main(start,end,stock = 'NIO',window_size=20)
 ```
 
 
-##Correlation Script
+## Correlation Script
 ```python
 python3 correlation.py
 ```
