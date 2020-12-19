@@ -61,7 +61,7 @@ def compile_data():
             main_df = df
         else:
             main_df = main_df.join(df,how='outer')
-    main_df.to_csv('closes.csv')
+    main_df.to_csv('temp/closes.csv')
     return main_df
 
 def get_percent_change(main_df,stock_list):
@@ -140,6 +140,8 @@ def main(ticker_list_file,days_back,top_n = 5, delete_old = False):
     print("Top " + str(top_n) + " Yearly Movers: " + str(yearly_winners[0:top_n]))
 
     print("-----------------------------------------------------------------------------------------------------------------")
+
+
 
 
 main(ticker_list_file ='stock_lists/cold.csv', days_back = 500, top_n = 4, delete_old = True)

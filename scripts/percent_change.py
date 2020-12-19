@@ -61,7 +61,7 @@ def compile_data():
             main_df = df
         else:
             main_df = main_df.join(df,how='outer')
-    main_df.to_csv('closes.csv')
+    main_df.to_csv('temp/closes.csv')
     return main_df
 
 def check_percent_change(main_df,stock_list,week_win_percent = 5,month_win_percent = 10,three_month_win_percent = 30,year_win_percent = 100):

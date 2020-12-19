@@ -63,7 +63,7 @@ def compile_data():
             main_df = df
         else:
             main_df = main_df.join(df,how='outer')
-    main_df.to_csv('closes.csv')
+    main_df.to_csv('temp/closes.csv')
 
 def visualize_data():
     df = pd.read_csv('temp/closes.csv')
@@ -120,4 +120,4 @@ def main(days_back,ticker_list_file,delete_old):
 
 
 
-main(days_back = 30, ticker_list_file ='stock_lists/medium.csv', delete_old = True)
+main(days_back = 100, ticker_list_file ='stock_lists/medium.csv', delete_old = True)
